@@ -1,0 +1,60 @@
+/* Nawigacja */
+.math-operation-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    width: 400px; /* Możesz dostosować tę wartość */
+    position: relative;
+}
+
+.navigation {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navigation button { /* Zastąp .button właściwą nazwą klasy, jeśli jest inna */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    font-size: .7em;
+}
+
+.navigation label { /* Zastąp .label właściwą nazwą klasy, jeśli jest inna */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* Pola wejściowe */
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Akcja (przycisk) */
+.action-button {
+    margin-bottom: 20px;
+}
+
+/* Feedback (wynik i błędy) */
+.feedback {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style dla komunikatów */
+.feedback > div {
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+}
