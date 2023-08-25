@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Nawigacja */
 .math-operation-container {
   border: 1px solid #ccc;
@@ -6,7 +5,6 @@
   padding: 10px;
   width: 100%;
   width: 400px;
-  /* Możesz dostosować tę wartość */
   position: relative;
 }
 
@@ -22,7 +20,6 @@
 }
 
 .navigation button {
-  /* Zastąp .button właściwą nazwą klasy, jeśli jest inna */
   position: absolute;
   top: 0;
   left: 0;
@@ -32,13 +29,11 @@
 }
 
 .navigation label {
-  /* Zastąp .label właściwą nazwą klasy, jeśli jest inna */
   padding: 20px;
   text-align: center;
   width: 100%;
 }
 
-/* Pola wejściowe */
 .input-fields {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -54,12 +49,10 @@
   width: 100%;
 }
 
-/* Akcja (przycisk) */
 .action-button {
   margin-bottom: 20px;
 }
 
-/* Feedback (wynik i błędy) */
 .feedback {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -71,7 +64,6 @@
   gap: 10px;
 }
 
-/* Style dla komunikatów */
 .feedback > div {
   padding: 10px;
   border-radius: 4px;
