@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../../atoms/button/button.component';
+import CsvDisplay from './csv-display.component';
+import ErrorMessage from '../../../atoms/error-message/error-message.component';
+import useCsvFileHandler from './useCsvFileHandler';
 
 const CsvLoader: React.FC = () => {
     const [data, setData] = useState<string[]>([]);
-
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const file = event.target.files?.[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = function (evt) {
-            const result = (evt.target as FileReader).result as string;
-            setData(result.split('\n'));
-        };
-        reader.readAsText(file);
-    }
+    const { handleFileChange, errorMessage } = useCsvFileHandler({
+        onData: setData,
+    });
 
     const loadSampleFile = async () => {
         try {
@@ -30,11 +24,10 @@ const CsvLoader: React.FC = () => {
     return (
         <div className="fetch-container">
             <Link to="/other"><Button className='function-button' label="⬅" /></Link>
-            <input type="file" onChange={handleFileChange} />
+            <input type="file" onChange={handleFileChange} accept=".csv" />
             <Button onClick={loadSampleFile} label="Wczytaj przykładowy plik CSV" />
-            <ul>
-                {data.map((row, index) => <li key={index}>{row}</li>)}
-            </ul>
+            {errorMessage && <ErrorMessage message={errorMessage} />}
+            <CsvDisplay data={data} />
         </div>
     );
 }

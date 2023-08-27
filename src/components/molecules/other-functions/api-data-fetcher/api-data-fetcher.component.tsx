@@ -41,12 +41,20 @@ const ApiDataFetcher: React.FC = () => {
 
     const fetchAndCombine = async () => {
         try {
-            const [data1, data2] = await Promise.all([
+            const [response1, response2] = await Promise.all([
                 fetchDataFromURL(url1, false),
                 fetchDataFromURL(url2, false)
             ]);
-            if (data1 && data2) {
-                setData({ ...data1, ...data2 });
+
+            const combinedData = {
+                apiResponse1: response1,
+                apiResponse2: response2
+            };
+
+
+
+            if (response1 && response2) {
+                setData(combinedData);
             } else {
                 console.error("One of the datasets is missing");
             }
@@ -54,6 +62,7 @@ const ApiDataFetcher: React.FC = () => {
             console.error("Error in fetchAndCombine:", error);
         }
     }
+
 
     const handleSampleUrlClick = () => {
         setUrl(DEFAULT_URL);
