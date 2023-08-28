@@ -67,13 +67,11 @@ export const factorial = (num: number): bigint => {
     return result;
 };
 
-export const fibonacci = (n: number): bigint => {
-    if (!isInteger(n) || n < 0) throw new Error("Nie można obliczyć ciągu Fibonacci dla liczby niecałkowitej lub ujemnej.");
-
+export const fibonacci = (n: bigint): bigint => {
     let a: bigint = 0n;
     let b: bigint = 1n;
 
-    for (let i = 2; i <= n; i++) {
+    for (let i = 2n; i <= n; i++) {
         const temp = a;
         a = b;
         b = temp + b;
@@ -81,6 +79,8 @@ export const fibonacci = (n: number): bigint => {
 
     return b;
 };
+
+
 
 
 
