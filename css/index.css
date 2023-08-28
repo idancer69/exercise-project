@@ -18,7 +18,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   place-items: center;
-  height: 100vh;
+  min-width: 320px;
+  min-height: 100vh;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;

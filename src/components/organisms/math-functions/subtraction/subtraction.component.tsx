@@ -1,5 +1,5 @@
 import MathOperationComponent from '../../../molecules/math-operation/math-operation.component';
-import { performOperation, subtract } from '../../../helpers/math-operations.helpers';
+import { performOperation, subtract } from '../../../../helpers/math-operations.helpers';
 
 type SubtractionComponentProps = {
     operation: string;
@@ -10,9 +10,13 @@ const SubtractionComponent: React.FC<SubtractionComponentProps> = ({ operation }
         setResult: React.Dispatch<React.SetStateAction<string | null>>,
         setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>) => {
         try {
-            const difference = performOperation(inputValues, subtract);
+            const [difference, wasRounded] = performOperation(inputValues, subtract);
+            if (wasRounded) {
+                setErrorMessage("Uwaga: Wynik został zaokrąglony.");
+            } else {
+                setErrorMessage(null);
+            }
             setResult(difference.toString());
-            setErrorMessage(null);
         } catch (error) {
             setErrorMessage((error as Error).message || "Wystąpił błąd podczas odejmowania.");
         }

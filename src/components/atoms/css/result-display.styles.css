@@ -4,5 +4,9 @@
   border-radius: 4px;
   background-color: #F67280;
   color: white;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 380px;
+  overflow-y: auto;
 }
 /*# sourceMappingURL=result-display.styles.css.map */
