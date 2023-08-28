@@ -1,5 +1,5 @@
 import MathOperationComponent from '../../../molecules/math-operation/math-operation.component';
-import { performOperation, divide } from '../../../helpers/math-operations.helpers';
+import { performOperation, divide } from '../../../../helpers/math-operations.helpers';
 
 type DivisionComponentProps = {
     operation: string;
@@ -10,9 +10,13 @@ const DivisionComponent: React.FC<DivisionComponentProps> = ({ operation }) => {
         setResult: React.Dispatch<React.SetStateAction<string | null>>,
         setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>) => {
         try {
-            const quotient = performOperation(inputValues, divide);
+            const [quotient, wasRounded] = performOperation(inputValues, divide);
+            if (wasRounded) {
+                setErrorMessage("Uwaga: Wynik został zaokrąglony.");
+            } else {
+                setErrorMessage(null);
+            }
             setResult(quotient.toString());
-            setErrorMessage(null);
         } catch (error) {
             setErrorMessage((error as Error).message || "Wystąpił błąd podczas dzielenia.");
         }

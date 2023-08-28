@@ -1,5 +1,5 @@
 import MathOperationComponent from '../../../molecules/math-operation/math-operation.component';
-import { performOperation, factorial } from '../../../helpers/math-operations.helpers';
+import { performOperation, factorial } from '../../../../helpers/math-operations.helpers';
 
 type FactorialComponentProps = {
     operation: string;

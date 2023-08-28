@@ -1,5 +1,5 @@
 import MathOperationComponent from '../../../molecules/math-operation/math-operation.component';
-import { performOperation, isPrime } from '../../../helpers/math-operations.helpers';
+import { performOperation, isPrime } from '../../../../helpers/math-operations.helpers';
 
 type PrimeCheckComponentProps = {
     operation: string;

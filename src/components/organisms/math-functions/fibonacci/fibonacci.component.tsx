@@ -1,5 +1,5 @@
 import MathOperationComponent from '../../../molecules/math-operation/math-operation.component';
-import { performOperation, fibonacci } from '../../../helpers/math-operations.helpers';
+import { performOperation, fibonacci } from '../../../../helpers/math-operations.helpers';
 
 type FibonacciComponentProps = {
     operation: string;
