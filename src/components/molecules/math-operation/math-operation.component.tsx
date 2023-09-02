@@ -5,7 +5,7 @@ import Input from '../../atoms/input/input.component';
 import Button from '../../atoms/button/button.component';
 import ResultDisplay from '../../atoms/result-display/result-display.component';
 import ErrorMessage from '../../atoms/error-message/error-message.component';
-import './math-operation.styles.scss'
+import { MathOperationContainer, Navigation, InputFields, Feedback } from './math-operation.styles';
 
 type OperationFunction = (
     inputs: string[],
@@ -61,18 +61,18 @@ const MathOperationComponent: React.FC<MathOperationProps> = ({ operationLabel, 
     };
 
     return (
-        <div className="math-operation-container">
+        <MathOperationContainer>
             {/* Nawigacja */}
-            <div className="navigation">
+            <Navigation>
                 <Link to="/math">
                     <Button label="⬅" />
                 </Link>
 
                 {operation && <Label text={operationNames[operation]} />}
-            </div>
+            </Navigation>
 
             {/* Pola wejściowe */}
-            <div className="input-fields">
+            <InputFields>
                 {inputs.map((input, index) => (
                     <Input
                         key={index}
@@ -81,19 +81,18 @@ const MathOperationComponent: React.FC<MathOperationProps> = ({ operationLabel, 
                         placeholder={inputPlaceholders ? inputPlaceholders[index] : `Liczba ${index + 1}`}
                     />
                 ))}
-            </div>
+            </InputFields>
 
             {/* Akcja */}
-            <div className="action-button">
-                <Button label={operationLabel} onClick={handleOperation} />
-            </div>
+            <Button label={operationLabel} onClick={handleOperation} />
 
             {/* Wynik i błędy */}
-            <div className="feedback">
+            <Feedback>
                 {result && <ResultDisplay result={result} />}
                 {errorMessage && <ErrorMessage message={errorMessage} />}
-            </div>
-        </div>
+            </Feedback>
+        </MathOperationContainer>
+
 
     );
 };

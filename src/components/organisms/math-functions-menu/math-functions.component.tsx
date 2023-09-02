@@ -1,23 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../../atoms/button/button.component';
-import './math.functions.styles.scss';
+import { FunctionButton, FunctionContainer } from './math.functions.styles';
 
 const MathFunctions: React.FC = () => {
     return (
         <>
             <h2>Funkcje matematyczne</h2>
-            <div className='functions-container'>
-                <Link to="/"><Button className='function-button' label="⬅" /></Link>
-                <Link to="/math/addition"><Button className='function-button' label="Dodawanie" /></Link>
-                <Link to="/math/subtraction"><Button className='function-button' label="Odejmowanie" /></Link>
-                <Link to="/math/multiplication"><Button className='function-button' label="Mnożenie" /></Link>
-                <Link to="/math/division"><Button className='function-button' label="Dzielenie" /></Link>
-                <Link to="/math/prime-check"><Button className='function-button' label="Czy liczba jest 'pierwszą'?" /></Link>
-                <Link to="/math/factorial"><Button className='function-button' label="Silnia" /></Link>
-                <Link to="/math/fibonacci"><Button className='function-button' label="Znajdź n-ty element ciągu Fibonacciego" /></Link>
-                <Link to="/math/vowel-count"><Button className='function-button' label="Oblicz ilość samogłosek w wyrazie" /></Link>
-            </div>
+            <FunctionContainer>
+                <Link to="/"><FunctionButton className='function-button'>⬅</FunctionButton></Link>
+                <Link to="/math/addition"><FunctionButton className='function-button'>Dodawanie</FunctionButton></Link>
+                <Link to="/math/subtraction"><FunctionButton className='function-button'>Odejmowanie</FunctionButton></Link>
+                <Link to="/math/multiplication"><FunctionButton className='function-button'>Mnożenie</FunctionButton></Link>
+                <Link to="/math/division"><FunctionButton className='function-button'>Dzielenie</FunctionButton></Link>
+                <Link to="/math/prime-check"><FunctionButton className='function-button'>Czy liczba jest 'pierwszą'?</FunctionButton></Link>
+                <Link to="/math/factorial"><FunctionButton className='function-button'>Silnia</FunctionButton></Link>
+                <Link to="/math/fibonacci"><FunctionButton className='function-button'>Znajdź n-ty element ciągu Fibonacciego</FunctionButton></Link>
+                <Link to="/math/vowel-count"><FunctionButton className='function-button'>Oblicz ilość samogłosek w wyrazie</FunctionButton></Link>
+            </FunctionContainer>
+
         </>
     );
 }

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../../../atoms/button/button.component';
-import './api-data-fetcher.style.scss';
+import StyledButton from '../../../atoms/button/button.styles';
+import { FetchContainer, UpperContainer, ButtonContainer, ApiSection, ResultsContainer } from './api-data-fetcher.style';
+import StyledInput from '../../../atoms/input/input.styles';
 
 const ApiDataFetcher: React.FC = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -63,57 +64,42 @@ const ApiDataFetcher: React.FC = () => {
         }
     }
 
-
     const handleSampleUrlClick = () => {
         setUrl(DEFAULT_URL);
         fetchDataFromURL();
     }
 
-
-    // const fetchContinuously = () => {
-    //     const intervalId = setInterval(async () => {
-    //         const fetchedData = await fetchDataFromURL(url1);
-    //         setData(fetchedData);
-    //     }, 10000);
-    //     // Czyszczenie interwału przy odmontowywaniu komponentu
-    //     return () => clearInterval(intervalId);
-    // }
-
-
-    // useEffect(() => {
-    //     fetchContinuously();
-    // }, []);
-
     return (
-        <div className='fetch-container'>
-            <Link to="/other"><Button className='function-button' label="⬅" /></Link>
-            <div className="upper-container">
-                <div className="single-api">
+        <FetchContainer>
+            <Link to="/other"><StyledButton className='function-button'>⬅ </StyledButton></Link>
+            <UpperContainer>
+                <ApiSection>
                     <h2>Funkcje na pojedynczym API</h2>
                     <p>Podaj adres API:</p>
-                    <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
-                    <div className='button-container'>
-                        <button onClick={handleSampleUrlClick}>Przykładowe API*</button>
-                        <button onClick={() => fetchDataFromURL(url)}>Pobierz z API</button>
-                    </div>
+                    <StyledInput type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
+                    <ButtonContainer>
+                        <StyledButton onClick={handleSampleUrlClick}>Przykładowe API*</StyledButton>
+                        <StyledButton onClick={() => fetchDataFromURL(url)}>Pobierz z API</StyledButton>
+                    </ButtonContainer>
                     <span>*Wybierz, jeśli nie znasz adresu do pobrania danych</span>
-                </div>
-                <div className="double-api">
+                </ApiSection>
+                <ApiSection>
                     <h2>Funkcje na dwóch API</h2>
                     <p>Podaj pierwszy adres API</p>
-                    <input type="text" value={url1} onChange={(e) => setUrl1(e.target.value)} />
+                    <StyledInput type="text" value={url1} onChange={(e) => setUrl1(e.target.value)} />
                     <p>Podaj drugi adres API</p>
-                    <input type="text" value={url2} onChange={(e) => setUrl2(e.target.value)} />
-                    <div className='button-container'>
-                        <button onClick={fetchFirstReturned}>Kto pierwszy, ten lepszy</button>
-                        <button onClick={fetchAndCombine}>Pobierz połączone dane</button>
-                    </div>
-                </div>
-            </div>
-            <div className="results-container">
+                    <StyledInput type="text" value={url2} onChange={(e) => setUrl2(e.target.value)} />
+                    <ButtonContainer>
+                        <StyledButton onClick={fetchFirstReturned}>Kto pierwszy, ten lepszy</StyledButton>
+                        <StyledButton onClick={fetchAndCombine}>Pobierz połączone dane</StyledButton>
+                    </ButtonContainer>
+                </ApiSection>
+            </UpperContainer>
+            <ResultsContainer>
                 <pre>{JSON.stringify(data, null, 2)}</pre>
-            </div>
-        </div>
+            </ResultsContainer>
+        </FetchContainer>
+
     );
 }
 

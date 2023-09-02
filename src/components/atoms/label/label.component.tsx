@@ -1,12 +1,12 @@
 import React from 'react';
-import './label.styles.scss';
+import StyledLabel from './label.styles';
 
 type LabelProps = {
     text: string;
 };
 
 const Label: React.FC<LabelProps> = ({ text }) => {
-    return <label>{text}</label>;
+    return <StyledLabel>{text}</StyledLabel>;
 }
 
 export default Label;
