@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../../../atoms/button/button.component';
+import StyledButton from '../../../atoms/button/button.styles';
+import StyledInput from '../../../atoms/input/input.styles';
 import CsvDisplay from './csv-display.component';
 import ErrorMessage from '../../../atoms/error-message/error-message.component';
 import useCsvFileHandler from './useCsvFileHandler';
@@ -23,9 +24,9 @@ const CsvLoader: React.FC = () => {
 
     return (
         <div className="fetch-container">
-            <Link to="/other"><Button className='function-button' label="⬅" /></Link>
-            <input type="file" onChange={handleFileChange} accept=".csv" />
-            <Button onClick={loadSampleFile} label="Wczytaj przykładowy plik CSV" />
+            <Link to="/other"><StyledButton className='function-button'>⬅ </StyledButton></Link>
+            <StyledInput type="file" onChange={handleFileChange} accept=".csv" />
+            <StyledButton onClick={loadSampleFile}>Wczytaj przykładowy plik CSV</StyledButton>
             {errorMessage && <ErrorMessage message={errorMessage} />}
             <CsvDisplay data={data} />
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './input.styles.scss';
+import StyledInput from './input.styles';
 
 type InputProps = {
     type?: string;
@@ -10,7 +10,7 @@ type InputProps = {
 
 const Input: React.FC<InputProps> = ({ type = "text", value, onChange, placeholder }) => {
     return (
-        <input
+        <StyledInput
             type={type}
             value={value}
             onChange={onChange}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Input from '../../../atoms/input/input.component';
+import StyledInput from '../../../atoms/input/input.styles';
+import StyledButton from '../../../atoms/button/button.styles';
 import { Link } from 'react-router-dom';
-import Button from '../../../atoms/button/button.component';
 
 const DelayFunction: React.FC = () => {
     const [delay, setDelay] = useState<number>(0);
@@ -28,15 +28,15 @@ const DelayFunction: React.FC = () => {
 
     return (
         <div className="fetch-container">
-            <Link to="/other"><Button className='function-button' label="⬅" /></Link>
-            <Input
+            <Link to="/other"><StyledButton className='function-button'>⬅ </StyledButton></Link>
+            <StyledInput
                 type="number"
                 value={delay.toString()}
                 onChange={handleInputChange}
                 placeholder="Opóźnienie w ms (domyślnie 578ms)"
             />
             {error && <div className="error-message">{error}</div>}
-            <button onClick={handleDelay}>Rozpocznij opóźnienie</button>
+            <StyledButton onClick={handleDelay}>Rozpocznij opóźnienie</StyledButton>
             <p>{message}</p>
         </div>
     );

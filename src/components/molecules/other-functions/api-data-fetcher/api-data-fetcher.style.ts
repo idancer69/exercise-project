@@ -1,4 +1,6 @@
-.fetch-container {
+import styled from '@emotion/styled';
+
+export const FetchContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,37 +9,37 @@
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     padding: 20px;
-}
+`;
 
-.upper-container {
+export const UpperContainer = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
     padding-top: 20px;
 
-    .single-api {
+    & > div:first-of-type {
         margin-right: 10px;
     }
 
-    .double-api {
+    & > div:last-of-type {
         margin-left: 10px;
     }
-}
+`;
 
-.button-container {
+export const ButtonContainer = styled.div`
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
-}
+`;
 
-.single-api, .double-api{
+export const ApiSection = styled.div`
     flex: 1;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     padding: 20px;
-}
+`;
 
-.results-container {
+export const ResultsContainer = styled.div`
     flex: 2;
     width: 100%;
     border: 1px solid #e0e0e0;
@@ -53,9 +55,4 @@
         margin: 0;
         padding: 10px 20px;
     }
-}
-
-input {
-    width: 80%;
-    margin: 20px;
-}
+`;

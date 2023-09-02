@@ -1,12 +1,12 @@
 import React from 'react';
-import './result-display.styles.scss';
+import StyledResultDisplay from './result-display.styles';
 
 type ResultDisplayProps = {
     result: string;
 };
 
 const ResultDisplay: React.FC<ResultDisplayProps> = ({ result }) => {
-    return <div className="result-display">{result}</div>;
+    return <StyledResultDisplay className="result-display">{result}</StyledResultDisplay>;
 }
 
 export default ResultDisplay;
