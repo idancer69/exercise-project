@@ -1,18 +1,20 @@
 import React from 'react';
-import './button.styles.scss';
+import StyledButton from './button.styles';
 
 type ButtonProps = {
-    label: string;
+    label?: string;
     onClick?: () => void;
     className?: string;
+    variant?: "default" | "square";
 };
 
-const Button: React.FC<ButtonProps> = ({ label, onClick, className }) => {
+const BaseButton: React.FC<ButtonProps> = ({ label, onClick, className, variant = "default", children, ...props }) => {
     return (
-        <button className={className} onClick={onClick}>
-            {label}
-        </button>
-    );
+        <StyledButton variant={variant} className={className} onClick={onClick} {...props}>
+             {label ? label : children}
+        </StyledButton>
+    )
 }
 
-export default Button;
+
+export default BaseButton;

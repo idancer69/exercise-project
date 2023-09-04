@@ -1,4 +1,5 @@
 import React from 'react';
+import { List, ListItem, Typography } from '@mui/material';
 
 interface Props {
     data: string[];
@@ -6,9 +7,13 @@ interface Props {
 
 const CsvDisplay: React.FC<Props> = ({ data }) => {
     return (
-        <ul>
-            {data.map((row, index) => <li key={index}>{row}</li>)}
-        </ul>
+        <List sx={{ width: '100%', mt: 2 }}>
+            {data.map((row, index) => 
+                <ListItem key={index}>
+                    <Typography variant="body1">{row}</Typography>
+                </ListItem>
+            )}
+        </List>
     );
 }
 

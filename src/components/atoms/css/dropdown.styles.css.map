@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,MAAM,CAAC;EACH,OAAO,EAAE,QAAQ;EACjB,MAAM,EAAE,cAAc;EACtB,aAAa,EAAE,GAAG;EAClB,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,IAAI;CACnB",
-    "sources": [
-        "../dropdown/dropdown.styles.scss"
-    ],
-    "names": [],
-    "file": "dropdown.styles.css"
-}
