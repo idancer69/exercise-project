@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import StyledButton from '../../../atoms/button/button.styles';
-import StyledInput from '../../../atoms/input/input.styles';
+import BaseButton from '../../../atoms/button/button.component';
+import { TextField, Paper, Typography, Box } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import CsvDisplay from './csv-display.component';
-import ErrorMessage from '../../../atoms/error-message/error-message.component';
+import ResultDisplay from '../../../atoms/result-display/result-display.component';
 import useCsvFileHandler from './useCsvFileHandler';
 
 const CsvLoader: React.FC = () => {
@@ -23,13 +24,20 @@ const CsvLoader: React.FC = () => {
     }
 
     return (
-        <div className="fetch-container">
-            <Link to="/other"><StyledButton className='function-button'>⬅ </StyledButton></Link>
-            <StyledInput type="file" onChange={handleFileChange} accept=".csv" />
-            <StyledButton onClick={loadSampleFile}>Wczytaj przykładowy plik CSV</StyledButton>
-            {errorMessage && <ErrorMessage message={errorMessage} />}
-            <CsvDisplay data={data} />
-        </div>
+        <Paper elevation={3} sx={{ p: 4, width: '80vw', display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #e0e0e0', borderRadius: '10px', backgroundColor: '#CFEDDB'}}>
+            <BaseButton component={Link} to="/other">
+                <ArrowBackIosIcon />
+            </BaseButton>
+            <Typography variant="h6" sx={{ mt: 2 }}>
+                Wczytaj plik CSV
+            </Typography>
+            <TextField type="file" onChange={handleFileChange} accept=".csv" sx={{ mt: 2 }} fullWidth />
+            <BaseButton onClick={loadSampleFile} label='Wczytaj przykładowy plik CSV' sx={{ mt: 2 }}/>
+            <Box mt={3} width="100%" border={1} borderColor="divider" p={2}>
+                {errorMessage && <ResultDisplay result={errorMessage} severity="error" />}
+                <CsvDisplay data={data} />
+            </Box>
+        </Paper>
     );
 }
 

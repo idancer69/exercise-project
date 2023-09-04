@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import StyledInput from '../../../atoms/input/input.styles';
-import StyledButton from '../../../atoms/button/button.styles';
+import BaseButton from '../../../atoms/button/button.component';
 import { Link } from 'react-router-dom';
+import { TextField, Paper, Typography} from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ResultDisplay from '../../../atoms/result-display/result-display.component';
 
 const DelayFunction: React.FC = () => {
     const [delay, setDelay] = useState<number>(0);
@@ -26,21 +28,27 @@ const DelayFunction: React.FC = () => {
         setMessage(`Opóźnienie wynosi: ${delay || 578} ms`);
     };
 
-    return (
-        <div className="fetch-container">
-            <Link to="/other"><StyledButton className='function-button'>⬅ </StyledButton></Link>
-            <StyledInput
-                type="number"
-                value={delay.toString()}
-                onChange={handleInputChange}
-                placeholder="Opóźnienie w ms (domyślnie 578ms)"
-            />
-            {error && <div className="error-message">{error}</div>}
-            <StyledButton onClick={handleDelay}>Rozpocznij opóźnienie</StyledButton>
-            <p>{message}</p>
-        </div>
-    );
-
+return (
+    <Paper elevation={3} sx={{ p: 4, width: '80vw', display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #e0e0e0', borderRadius: '10px', backgroundColor: '#CFEDDB' }}>
+        <BaseButton component={Link} to="/other">
+            <ArrowBackIosIcon />
+        </BaseButton>
+        <TextField 
+            type="number"
+            value={delay.toString()}
+            onChange={handleInputChange}
+            placeholder="Opóźnienie w ms (domyślnie 578ms)"
+            fullWidth
+            variant="outlined"
+            sx={{ mt: 3 }} 
+        />
+        {error && <ResultDisplay result={error} severity="error" />}
+        <BaseButton onClick={handleDelay} label='Rozpocznij opóźnienie' sx={{ mt: 3 }} />
+        <Typography variant='body1' sx={{ mt: 3 }}>
+            {message}
+        </Typography>
+    </Paper>
+);
 }
 
 export default DelayFunction;

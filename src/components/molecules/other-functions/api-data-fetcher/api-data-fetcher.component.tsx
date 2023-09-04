@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Paper, Box, Grid, TextField, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import StyledButton from '../../../atoms/button/button.styles';
-import { FetchContainer, UpperContainer, ButtonContainer, ApiSection, ResultsContainer } from './api-data-fetcher.style';
-import StyledInput from '../../../atoms/input/input.styles';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import BaseButton from '../../../atoms/button/button.component';
+import {StyledPre} from './api-data-fetcher.style.ts'
 
 const ApiDataFetcher: React.FC = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -47,13 +48,7 @@ const ApiDataFetcher: React.FC = () => {
                 fetchDataFromURL(url2, false)
             ]);
 
-            const combinedData = {
-                apiResponse1: response1,
-                apiResponse2: response2
-            };
-
-
-
+            const combinedData = { apiResponse1: response1, apiResponse2: response2 };
             if (response1 && response2) {
                 setData(combinedData);
             } else {
@@ -69,38 +64,42 @@ const ApiDataFetcher: React.FC = () => {
         fetchDataFromURL();
     }
 
-    return (
-        <FetchContainer>
-            <Link to="/other"><StyledButton className='function-button'>⬅ </StyledButton></Link>
-            <UpperContainer>
-                <ApiSection>
-                    <h2>Funkcje na pojedynczym API</h2>
-                    <p>Podaj adres API:</p>
-                    <StyledInput type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
-                    <ButtonContainer>
-                        <StyledButton onClick={handleSampleUrlClick}>Przykładowe API*</StyledButton>
-                        <StyledButton onClick={() => fetchDataFromURL(url)}>Pobierz z API</StyledButton>
-                    </ButtonContainer>
-                    <span>*Wybierz, jeśli nie znasz adresu do pobrania danych</span>
-                </ApiSection>
-                <ApiSection>
-                    <h2>Funkcje na dwóch API</h2>
-                    <p>Podaj pierwszy adres API</p>
-                    <StyledInput type="text" value={url1} onChange={(e) => setUrl1(e.target.value)} />
-                    <p>Podaj drugi adres API</p>
-                    <StyledInput type="text" value={url2} onChange={(e) => setUrl2(e.target.value)} />
-                    <ButtonContainer>
-                        <StyledButton onClick={fetchFirstReturned}>Kto pierwszy, ten lepszy</StyledButton>
-                        <StyledButton onClick={fetchAndCombine}>Pobierz połączone dane</StyledButton>
-                    </ButtonContainer>
-                </ApiSection>
-            </UpperContainer>
-            <ResultsContainer>
-                <pre>{JSON.stringify(data, null, 2)}</pre>
-            </ResultsContainer>
-        </FetchContainer>
-
-    );
+return (
+    <Paper elevation={3} sx={{ p: 4, width: '80vw', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#CFEDDB' }}>
+        <BaseButton component={Link} to="/other">
+            <ArrowBackIosIcon />
+        </BaseButton>
+        <Grid container spacing={12} sx={{ pt: 3 }}>
+            <Grid item xs={6} container direction="column" spacing={3} alignItems='center'>
+                <Typography variant="h6">Funkcje na pojedynczym API</Typography>
+                <Typography variant="body2">Podaj adres API:</Typography>
+                <TextField value={url} onChange={(e) => setUrl(e.target.value)} variant="outlined" fullWidth />
+                <Box display="flex" justifyContent="space-around" mt={3} gap={2}>
+                    <BaseButton onClick={handleSampleUrlClick} label='Przykładowe API*'/>
+                    <BaseButton onClick={() => fetchDataFromURL(url)} label='Pobierz z API'/>
+                </Box>
+                <Typography variant="caption">*Wybierz, jeśli nie znasz adresu do pobrania danych</Typography>
+            </Grid>
+                
+            <Grid item xs={6} container direction="column" spacing={3} alignItems='center'>
+                <Typography variant="h6">Funkcje na dwóch API</Typography>
+                <Typography variant="body2">Podaj pierwszy adres API:</Typography>
+                <TextField value={url1} onChange={(e) => setUrl1(e.target.value)} variant="outlined" fullWidth />
+                <Typography variant="body2">Podaj drugi adres API:</Typography>
+                <TextField value={url2} onChange={(e) => setUrl2(e.target.value)} variant="outlined" fullWidth />
+                <Box display="flex" justifyContent="space-around" mt={3} gap={2}>
+                    <BaseButton onClick={fetchFirstReturned} label='Kto pierwszy, ten lepszy'/>
+                    <BaseButton onClick={fetchAndCombine} label='Pobierz połączone dane'/>
+                </Box>
+            </Grid>
+        </Grid>
+        <Box mt={3} width="100%" border={1} borderColor="divider" p={2}>
+            <StyledPre>
+                {JSON.stringify(data, null, 2)}
+            </StyledPre>
+        </Box>
+    </Paper>
+);
 }
 
 export default ApiDataFetcher;
