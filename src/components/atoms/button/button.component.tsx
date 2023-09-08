@@ -5,13 +5,18 @@ type ButtonProps = {
     label?: string;
     onClick?: () => void;
     className?: string;
-    variant?: "default" | "square";
+    customvariant?: "default" | "square";
+    children?: React.ReactNode;
+    component?: React.ElementType;
+    to?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    sx?: any;
 };
 
-const BaseButton: React.FC<ButtonProps> = ({ label, onClick, className, variant = "default", children, ...props }) => {
+const BaseButton: React.FC<ButtonProps> = ({ label, onClick, className, customvariant = "default", children, ...props }) => {
     return (
-        <StyledButton variant={variant} className={className} onClick={onClick} {...props}>
-             {label ? label : children}
+        <StyledButton customvariant={customvariant} className={className} onClick={onClick} {...props}>
+            {label ? label : children}
         </StyledButton>
     )
 }

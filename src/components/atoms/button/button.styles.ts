@@ -1,12 +1,12 @@
-import {Button} from '@mui/material';
+import { Button, ButtonProps as MuiButtonProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 interface StyledButtonProps {
     label?: string;
-    variant?: "default" | "square";
+    customvariant?: "default" | "square";
 }
 
-const StyledButton = styled(Button, {shouldForwardProp: (prop) => prop !== 'variant',})<StyledButtonProps>`
+const StyledButton = styled(Button, { shouldForwardProp: (prop) => prop !== 'variant' }) <StyledButtonProps & MuiButtonProps>` 
     // background: linear-gradient(45deg, #6C5B7B, #C06C84, #F67280);
     background: #4682AA;
     color: white;
@@ -22,7 +22,7 @@ const StyledButton = styled(Button, {shouldForwardProp: (prop) => prop !== 'vari
     // padding: 0.6em 1.2em;
 
     /* square variant styles */
-    ${({ variant }) => variant === 'square' && `
+    ${({ customvariant }) => customvariant === 'square' && `
         min-height: 100%;
         font-size: .9em;
     `}

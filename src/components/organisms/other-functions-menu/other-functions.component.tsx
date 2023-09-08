@@ -13,18 +13,18 @@ const OtherFunctions: React.FC = () => {
                     <Typography variant='h4' color="#F5FFFA">Funkcje asynchroniczne</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                <BaseButton component={Link} to="/" variant='square' >
+                <BaseButton component={Link} to="/" customvariant='square' >
                     <ArrowBackIosIcon />
                 </BaseButton>
                 </Grid>
                 <Grid item xs={6}>
-                    <BaseButton component={Link} to="/other/csv-loader" variant='square' label='Czytnik pliku CSV'/>
+                    <BaseButton component={Link} to="/other/csv-loader" customvariant='square' label='Czytnik pliku CSV'/>
                 </Grid>
                 <Grid item xs={6}>
-                    <BaseButton component={Link} to="/other/api-data-fetcher" variant='square' label='API Fetcher'/>
+                    <BaseButton component={Link} to="/other/api-data-fetcher" customvariant='square' label='API Fetcher'/>
                 </Grid>
                 <Grid item xs={6}>
-                    <BaseButton component={Link} to="/other/delay" variant='square' label='Delay'/>
+                    <BaseButton component={Link} to="/other/delay" customvariant='square' label='Delay'/>
                 </Grid>
             </Grid>
     );

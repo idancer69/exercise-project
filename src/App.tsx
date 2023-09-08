@@ -28,43 +28,43 @@ const App: React.FC = () => {
     <BrowserRouter>
       <CssBaseline />
       <GlobalStyles styles={globalStyles} />
-      <Grid container direction="column" justifyContent="center" alignItems="center" style={{ minHeight: '100vh' }} 
+      <Grid container direction="column" justifyContent="center" alignItems="center" style={{ minHeight: '100vh' }}
       // sx={{width: '60vw'}}
       >
         <Routes>
           <Route path="/" element={
-              <Grid container spacing={2} justifyContent="center">
-                <Grid item>
-                  <BaseButton component={Link} to="/math" label="Funkcje matematyczne" sx={{ width: 300, height: 300, fontSize: { xs: 'initial', sm: '1.5rem' } }} />
-                </Grid>
-                <Grid item>
-                  <BaseButton component={Link} to="/other" label="Inne funkcje" sx={{ width: 300, height: 300, fontSize: { xs: 'initial', sm: '1.5rem' } }} />
-                </Grid>
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item>
+                <BaseButton component={Link} to="/math" label="Funkcje matematyczne" sx={{ width: 300, height: 300, fontSize: { xs: 'initial', sm: '1.5rem' } }} />
               </Grid>
+              <Grid item>
+                <BaseButton component={Link} to="/other" label="Inne funkcje" sx={{ width: 300, height: 300, fontSize: { xs: 'initial', sm: '1.5rem' } }} />
+              </Grid>
+            </Grid>
           } />
 
           <Route path="/math/*" element={
-              <Routes>
-                <Route path="/" element={<MathFunctions />} />
-                <Route path="addition" element={<AdditionComponent operation="addition" />} />
-                <Route path="subtraction" element={<SubtractionComponent operation="subtraction" />} />
-                <Route path="multiplication" element={<MultiplicationComponent operation="multiplication" />} />
-                <Route path="division" element={<DivisionComponent operation="division" />} />
-                <Route path="prime-check" element={<PrimeCheckComponent operation="prime-check" />} />
-                <Route path="factorial" element={<FactorialComponent operation="factorial" />} />
-                <Route path="fibonacci" element={<FibonacciComponent operation="fibonacci" />} />
-                <Route path="vowel-count" element={<VowelCountComponent operation="vowel-count" />} />
-              </Routes>
+            <Routes>
+              <Route path="/" element={<MathFunctions />} />
+              <Route path="addition" element={<AdditionComponent operation="addition" />} />
+              <Route path="subtraction" element={<SubtractionComponent operation="subtraction" />} />
+              <Route path="multiplication" element={<MultiplicationComponent operation="multiplication" />} />
+              <Route path="division" element={<DivisionComponent operation="division" />} />
+              <Route path="prime-check" element={<PrimeCheckComponent operation="prime-check" />} />
+              <Route path="factorial" element={<FactorialComponent operation="factorial" />} />
+              <Route path="fibonacci" element={<FibonacciComponent operation="fibonacci" />} />
+              <Route path="vowel-count" element={<VowelCountComponent operation="vowel-count" />} />
+            </Routes>
           }>
           </Route>
 
           <Route path="/other/*" element={
-              <Routes>
-                <Route path="/" element={<OtherFunctions />} />
-                <Route path="csv-loader" element={<CsvLoader />} />
-                <Route path="api-data-fetcher" element={<ApiDataFetcher />} />
-                <Route path="delay" element={<DelayFunction />} />
-              </Routes>
+            <Routes>
+              <Route path="/" element={<OtherFunctions />} />
+              <Route path="csv-loader" element={<CsvLoader />} />
+              <Route path="api-data-fetcher" element={<ApiDataFetcher />} />
+              <Route path="delay" element={<DelayFunction />} />
+            </Routes>
           } />
         </Routes>
       </Grid>

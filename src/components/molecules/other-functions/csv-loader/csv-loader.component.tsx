@@ -24,15 +24,15 @@ const CsvLoader: React.FC = () => {
     }
 
     return (
-        <Paper elevation={3} sx={{ p: 4, width: '80vw', display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #e0e0e0', borderRadius: '10px', backgroundColor: '#CFEDDB'}}>
+        <Paper elevation={3} sx={{ p: 4, width: '80vw', display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #e0e0e0', borderRadius: '10px', backgroundColor: '#CFEDDB' }}>
             <BaseButton component={Link} to="/other">
                 <ArrowBackIosIcon />
             </BaseButton>
             <Typography variant="h6" sx={{ mt: 2 }}>
                 Wczytaj plik CSV
             </Typography>
-            <TextField type="file" onChange={handleFileChange} accept=".csv" sx={{ mt: 2 }} fullWidth />
-            <BaseButton onClick={loadSampleFile} label='Wczytaj przykładowy plik CSV' sx={{ mt: 2 }}/>
+            <TextField type="file" onChange={handleFileChange} InputProps={{ inputProps: { accept: ".csv", }, }} sx={{ my: 2 }} fullWidth />
+            <BaseButton onClick={loadSampleFile} label='Wczytaj przykładowy plik CSV' />
             <Box mt={3} width="100%" border={1} borderColor="divider" p={2}>
                 {errorMessage && <ResultDisplay result={errorMessage} severity="error" />}
                 <CsvDisplay data={data} />
