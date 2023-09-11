@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import BaseButton from '../../../atoms/button/button.component';
-import { TextField, Paper, Typography, Box } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import CsvDisplay from './csv-display.component';
+import { Box,Paper, TextField, Typography } from '@mui/material';
+
+import BaseButton from '../../../atoms/button/button.component';
 import ResultDisplay from '../../../atoms/result-display/result-display.component';
+
+import CsvDisplay from './csv-display.component';
 import useCsvFileHandler from './useCsvFileHandler';
 
 const CsvLoader: React.FC = () => {

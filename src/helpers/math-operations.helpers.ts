@@ -1,5 +1,3 @@
-export const isInteger = (value: number): boolean => value % 1 === 0;
-
 export const handleOverflow = (value: number): [number | bigint, boolean] => {
     if (Number.isNaN(value)) {
         throw new Error('Value is NaN');
@@ -44,7 +42,7 @@ export const divide = (a: number, b: number): [number | bigint, boolean] => {
 };
 
 export const factorial = (num: number): bigint => {
-    if (!isInteger(num) || num < 0) throw new Error("Nie można obliczyć silnii dla liczby niecałkowitej lub ujemnej.");
+    if (!Number.isInteger(num) || num < 0) throw new Error("Nie można obliczyć silnii dla liczby niecałkowitej lub ujemnej.");
     if (num > 10000) throw new Error("Podana liczba jest zbyt duża dla tej funkcji.");
 
     let result: bigint = 1n;
@@ -56,7 +54,7 @@ export const factorial = (num: number): bigint => {
 };
 
 export const fibonacci = (n: number): bigint => {
-    if (!isInteger(n) || n < 0) throw new Error("Nie można obliczyć ciągu Fibonacci dla liczby niecałkowitej lub ujemnej.");
+    if (!Number.isInteger(n) || n < 0) throw new Error("Nie można obliczyć ciągu Fibonacci dla liczby niecałkowitej lub ujemnej.");
 
     let a: bigint = 0n;
     let b: bigint = 1n;

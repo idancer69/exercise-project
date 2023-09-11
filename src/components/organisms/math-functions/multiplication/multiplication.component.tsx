@@ -1,5 +1,5 @@
+import { multiply,performOperation } from '../../../../helpers/math-operations.helpers';
 import MathOperationComponent from '../../../molecules/math-operation/math-operation.component';
-import { performOperation, multiply } from '../../../../helpers/math-operations.helpers';
 
 type MultiplicationComponentProps = {
     operation: string;

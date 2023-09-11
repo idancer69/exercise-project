@@ -1,5 +1,5 @@
+import { divide,performOperation } from '../../../../helpers/math-operations.helpers';
 import MathOperationComponent from '../../../molecules/math-operation/math-operation.component';
-import { performOperation, divide } from '../../../../helpers/math-operations.helpers';
 
 type DivisionComponentProps = {
     operation: string;

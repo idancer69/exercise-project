@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
-import BaseButton from '../../atoms/button/button.component';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Grid } from '@mui/material';
+import Typography from '@mui/material/Typography';
+
+import BaseButton from '../../atoms/button/button.component';
 
 const MathFunctions: React.FC = () => {
     return (

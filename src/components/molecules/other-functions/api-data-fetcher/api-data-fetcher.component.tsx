@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Paper, Box, Grid, TextField, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Box, Grid, Paper, TextField, Typography } from '@mui/material';
+
 import BaseButton from '../../../atoms/button/button.component';
+
 import {StyledPre} from './api-data-fetcher.style.ts'
 
 const ApiDataFetcher: React.FC = () => {

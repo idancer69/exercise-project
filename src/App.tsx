@@ -1,20 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter, Link,Route, Routes } from 'react-router-dom';
+import { CssBaseline, GlobalStyles, Grid } from '@mui/material';
+
 import BaseButton from './components/atoms/button/button.component';
-import MathFunctions from './components/organisms/math-functions-menu/math-functions.component';
-import OtherFunctions from './components/organisms/other-functions-menu/other-functions.component';
-import AdditionComponent from './components/organisms/math-functions/addition/addition.component';
-import SubtractionComponent from './components/organisms/math-functions/subtraction/subtraction.component';
-import MultiplicationComponent from './components/organisms/math-functions/multiplication/multiplication.component';
-import DivisionComponent from './components/organisms/math-functions/division/division.component'
-import PrimeCheckComponent from './components/organisms/math-functions/prime-check/prime-check.component';
-import FactorialComponent from './components/organisms/math-functions/factorial/factorial.component';
-import VowelCountComponent from './components/organisms/math-functions/vovel-count/vowel-count.component';
-import FibonacciComponent from './components/organisms/math-functions/fibonacci/fibonacci.component';
 import ApiDataFetcher from './components/molecules/other-functions/api-data-fetcher/api-data-fetcher.component';
 import CsvLoader from './components/molecules/other-functions/csv-loader/csv-loader.component';
 import DelayFunction from './components/molecules/other-functions/delay/delay.component';
-import { CssBaseline, GlobalStyles, Grid } from '@mui/material';
+import AdditionComponent from './components/organisms/math-functions/addition/addition.component';
+import DivisionComponent from './components/organisms/math-functions/division/division.component'
+import FactorialComponent from './components/organisms/math-functions/factorial/factorial.component';
+import FibonacciComponent from './components/organisms/math-functions/fibonacci/fibonacci.component';
+import MultiplicationComponent from './components/organisms/math-functions/multiplication/multiplication.component';
+import PrimeCheckComponent from './components/organisms/math-functions/prime-check/prime-check.component';
+import SubtractionComponent from './components/organisms/math-functions/subtraction/subtraction.component';
+import VowelCountComponent from './components/organisms/math-functions/vovel-count/vowel-count.component';
+import MathFunctions from './components/organisms/math-functions-menu/math-functions.component';
+import OtherFunctions from './components/organisms/other-functions-menu/other-functions.component';
 
 const globalStyles = `
   body {
@@ -28,9 +29,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <CssBaseline />
       <GlobalStyles styles={globalStyles} />
-      <Grid container direction="column" justifyContent="center" alignItems="center" style={{ minHeight: '100vh' }}
-      // sx={{width: '60vw'}}
-      >
+      <Grid container direction="column" justifyContent="center" alignItems="center" sx={{ minHeight: '100vh' }}>
         <Routes>
           <Route path="/" element={
             <Grid container spacing={2} justifyContent="center">

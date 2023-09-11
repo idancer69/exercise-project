@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import BaseButton from '../../../atoms/button/button.component';
 import { Link } from 'react-router-dom';
-import { TextField, Paper, Typography} from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Paper, TextField, Typography} from '@mui/material';
+
+import BaseButton from '../../../atoms/button/button.component';
 import ResultDisplay from '../../../atoms/result-display/result-display.component';
 
 const DelayFunction: React.FC = () => {
