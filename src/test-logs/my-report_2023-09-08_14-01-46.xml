@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="10" failures="3" errors="0" time="8.802">
+  <testsuite name="undefined" errors="0" failures="3" skipped="0" timestamp="2023-09-08T12:01:48" time="8.545" tests="10">
+    <testcase classname=" isInteger identifies integers correctly" name=" isInteger identifies integers correctly" time="0.004">
+    </testcase>
+    <testcase classname=" handleOverflow handles values correctly" name=" handleOverflow handles values correctly" time="0.002">
+    </testcase>
+    <testcase classname=" performOperation executes the operation correctly" name=" performOperation executes the operation correctly" time="0.032">
+    </testcase>
+    <testcase classname=" addition works correctly" name=" addition works correctly" time="0.003">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 9007199254740992n
+Received: 9007199254740991n
+    at Object.&lt;anonymous&gt; (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/src/helpers/math-operations.test.ts:28:20)
+    at Promise.then.completed (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:126:9)
+    at run (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname=" subtraction works correctly" name=" subtraction works correctly" time="0.001">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: -9007199254740992n
+Received: -9007199254740991n
+    at Object.&lt;anonymous&gt; (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/src/helpers/math-operations.test.ts:36:20)
+    at Promise.then.completed (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:126:9)
+    at run (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname=" multiplication works correctly" name=" multiplication works correctly" time="0.007">
+      <failure>Error: expect(received).toEqual(expected) // deep equality
+
+- Expected  - 1
++ Received  + 1
+
+  Array [
+-   18014398509481982n,
++   9007199254740991n,
+    true,
+  ]
+    at Object.&lt;anonymous&gt; (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/src/helpers/math-operations.test.ts:43:50)
+    at Promise.then.completed (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:126:9)
+    at run (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/piotr/Desktop/Kodowanie/zadania itTicket/exercise-project/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname=" division works correctly" name=" division works correctly" time="0.002">
+    </testcase>
+    <testcase classname=" factorial computes correctly" name=" factorial computes correctly" time="0.002">
+    </testcase>
+    <testcase classname=" fibonacci sequence works correctly" name=" fibonacci sequence works correctly" time="0.002">
+    </testcase>
+    <testcase classname=" isPrime determines primality correctly" name=" isPrime determines primality correctly" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
