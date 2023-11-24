@@ -1,5 +1,7 @@
+/* eslint-disable simple-import-sort/imports */
 import React from 'react';
 
+import { SxProps, Theme } from "@mui/material"
 import StyledButton from './button.styles';
 
 type ButtonProps = {
@@ -10,8 +12,7 @@ type ButtonProps = {
     children?: React.ReactNode;
     component?: React.ElementType;
     to?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    sx?: any;
+    sx?: SxProps<Theme>;
 };
 
 const BaseButton: React.FC<ButtonProps> = ({ label, onClick, className, customvariant = "default", children, ...props }) => {
