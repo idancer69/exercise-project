@@ -1,12 +1,16 @@
 import React from 'react';
-import './result-display.styles.scss';
+import { Alert } from '@mui/material';
 
 type ResultDisplayProps = {
     result: string;
+    severity?: 'error' | 'info' | 'success' | 'warning';
 };
 
-const ResultDisplay: React.FC<ResultDisplayProps> = ({ result }) => {
-    return <div className="result-display">{result}</div>;
-}
+const ResultDisplay: React.FC<ResultDisplayProps> = ({ result, severity = 'info' }) => (
+    <Alert severity={severity}>
+        {result}
+    </Alert>
+);
+
 
 export default ResultDisplay;

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="10" failures="0" errors="0" time="9.889">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2023-09-08T12:35:14" time="9.633" tests="10">
+    <testcase classname=" isInteger identifies integers correctly" name=" isInteger identifies integers correctly" time="0.004">
+    </testcase>
+    <testcase classname=" handleOverflow handles values correctly" name=" handleOverflow handles values correctly" time="0.003">
+    </testcase>
+    <testcase classname=" performOperation executes the operation correctly" name=" performOperation executes the operation correctly" time="0.06">
+    </testcase>
+    <testcase classname=" addition works correctly" name=" addition works correctly" time="0.001">
+    </testcase>
+    <testcase classname=" subtraction works correctly" name=" subtraction works correctly" time="0.003">
+    </testcase>
+    <testcase classname=" multiplication works correctly" name=" multiplication works correctly" time="0.001">
+    </testcase>
+    <testcase classname=" division works correctly" name=" division works correctly" time="0.01">
+    </testcase>
+    <testcase classname=" factorial computes correctly" name=" factorial computes correctly" time="0.003">
+    </testcase>
+    <testcase classname=" fibonacci sequence works correctly" name=" fibonacci sequence works correctly" time="0.002">
+    </testcase>
+    <testcase classname=" isPrime determines primality correctly" name=" isPrime determines primality correctly" time="0.01">
+    </testcase>
+  </testsuite>
+</testsuites>

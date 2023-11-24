@@ -26,3 +26,6 @@ dist-ssr
 css
 *.css
 *.css.map
+
+coverage
+test-logs/*

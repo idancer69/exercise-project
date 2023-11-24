@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Label from '../../atoms/label/label.component';
-import Input from '../../atoms/input/input.component';
-import Button from '../../atoms/button/button.component';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Box, Grid, Paper, TextField, Typography } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+
+import BaseButton from '../../atoms/button/button.component';
 import ResultDisplay from '../../atoms/result-display/result-display.component';
-import ErrorMessage from '../../atoms/error-message/error-message.component';
-import './math-operation.styles.scss'
+
 
 type OperationFunction = (
     inputs: string[],
@@ -61,40 +62,50 @@ const MathOperationComponent: React.FC<MathOperationProps> = ({ operationLabel, 
     };
 
     return (
-        <div className="math-operation-container">
-            {/* Nawigacja */}
-            <div className="navigation">
-                <Link to="/math">
-                    <Button label="⬅" />
-                </Link>
+        <Paper elevation={3} sx={{
+            p: 4,
+            width: '60vw',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundColor: '#CFEDDB'
+        }}>
+            {/* Navigation */}
+            <IconButton component={Link} to="/math">
+                <ArrowBackIosIcon />
+            </IconButton>
 
-                {operation && <Label text={operationNames[operation]} />}
-            </div>
+            {operation &&
+                <Typography variant="h4" sx={{ textAlign: 'center', width: '100%', pt: 3 }}>
+                    {operationNames[operation]}
+                </Typography>
+            }
 
-            {/* Pola wejściowe */}
-            <div className="input-fields">
+            {/* Body */}
+            <Grid container spacing={8} sx={{ pt: 3 }}>
                 {inputs.map((input, index) => (
-                    <Input
-                        key={index}
-                        value={input}
-                        onChange={(e) => handleInputChange(index, e.target.value)}
-                        placeholder={inputPlaceholders ? inputPlaceholders[index] : `Liczba ${index + 1}`}
-                    />
+                    <Grid item xs={6} container direction="column" spacing={3} key={index}>
+                        <Typography variant="body2">{inputPlaceholders ? inputPlaceholders[index] : `Liczba ${index + 1}`}</Typography>
+                        <TextField
+                            value={input}
+                            onChange={(e) => handleInputChange(index, e.target.value)}
+                            fullWidth
+                            variant="outlined"
+                        />
+                    </Grid>
                 ))}
-            </div>
+            </Grid>
 
-            {/* Akcja */}
-            <div className="action-button">
-                <Button label={operationLabel} onClick={handleOperation} />
-            </div>
+            <Box display="flex" justifyContent="center" mt={3}>
+                <BaseButton label={operationLabel} onClick={handleOperation} />
+            </Box>
 
-            {/* Wynik i błędy */}
-            <div className="feedback">
-                {result && <ResultDisplay result={result} />}
-                {errorMessage && <ErrorMessage message={errorMessage} />}
-            </div>
-        </div>
-
+            {/* Results and Errors */}
+            <Box mt={3} width="100%" border={1} borderColor="divider" p={2}>
+                {result && <ResultDisplay result={result} severity="info" />}
+                {errorMessage && <ResultDisplay result={errorMessage} severity="error" />}
+            </Box>
+        </Paper>
     );
 };
 

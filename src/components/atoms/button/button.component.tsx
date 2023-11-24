@@ -1,18 +1,27 @@
+/* eslint-disable simple-import-sort/imports */
 import React from 'react';
-import './button.styles.scss';
+
+import { SxProps, Theme } from "@mui/material"
+import StyledButton from './button.styles';
 
 type ButtonProps = {
-    label: string;
+    label?: string;
     onClick?: () => void;
     className?: string;
+    customvariant?: "default" | "square";
+    children?: React.ReactNode;
+    component?: React.ElementType;
+    to?: string;
+    sx?: SxProps<Theme>;
 };
 
-const Button: React.FC<ButtonProps> = ({ label, onClick, className }) => {
+const BaseButton: React.FC<ButtonProps> = ({ label, onClick, className, customvariant = "default", children, ...props }) => {
     return (
-        <button className={className} onClick={onClick}>
-            {label}
-        </button>
-    );
+        <StyledButton customvariant={customvariant} className={className} onClick={onClick} {...props}>
+            {label ? label : children}
+        </StyledButton>
+    )
 }
 
-export default Button;
+
+export default BaseButton;
